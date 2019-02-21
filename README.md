@@ -2,6 +2,8 @@
 
 本仓库主要分为3个模块，对 leetcode 中常见问题进行了分类整理。
 
+| 模块 | 笔记 |
+| :--: | :--: |
 | <h3>:hammer: 模块一  LeetCode题解笔记</h3> | |
 | 第一节 数组问题 | [第一节 数组问题](https://github.com/DuHouAn/Java-Interview/blob/master/SolutionsNotes/01%E6%95%B0%E7%BB%84%E9%97%AE%E9%A2%98.md) |
 | 第二节 查找表问题 | [第二节 查找表问题](https://github.com/DuHouAn/Java-Interview/blob/master/SolutionsNotes/02%E6%9F%A5%E6%89%BE%E9%97%AE%E9%A2%98.md) |
