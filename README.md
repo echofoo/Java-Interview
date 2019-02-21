@@ -1,6 +1,6 @@
 # 仓库说明
 
-本仓库主要分为3个模块，对 leetcode 中常见问题进行了分类整理。
+本仓库主要分为4个模块，对 leetcode 中常见问题进行了分类整理。
 
 | 模块 | 笔记 |
 | :--: | :--: |
@@ -18,9 +18,6 @@
 | 第十一节 逻辑 |  [第十一节 逻辑](https://github.com/DuHouAn/Java-Interview/blob/master/SolutionsNotes/11%E9%80%BB%E8%BE%91.md)|
 | 第十二节 数据结构 | [第十二节 数据结构](https://github.com/DuHouAn/Java-Interview/blob/master/SolutionsNotes/12%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.md) |
 | 第十三节 其他 | [第十三节 其他](https://github.com/DuHouAn/Java-Interview/blob/master/SolutionsNotes/13%E5%85%B6%E4%BB%96.md) |
-| <h3>:bulb: 模块二 Top100 </h3>  | |
-| Top100 | 点赞数最高的100道问题 |
-| <h3>:penguin: 模块三 腾讯精选 </h3>| |
-| 腾讯精选 | 腾讯精选练习 |
-| <h3>:zap: 字节跳动精选</h3> | |
-| 字节跳动精选 | 字节跳动精选练习 |
+| <h3>:penguin: 模块二 腾讯精选 </h3>| [腾讯精选练习](https://github.com/DuHouAn/Java-Interview/blob/master/BigFactoryNotes/00TencentNotes.md)|
+| <h3>:zap: 模块三 字节跳动精选</h3> | [字节跳动精选练习](https://github.com/DuHouAn/Java-Interview/blob/master/BigFactoryNotes/01ByteDanceNotes.md) |
+| <h3>:bulb: 模块四 Top100 </h3>  | [Top 100](https://github.com/DuHouAn/Java-Interview/blob/master/BigFactoryNotes/02Top100.md)|
