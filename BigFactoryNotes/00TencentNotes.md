@@ -16,12 +16,12 @@
 | -- | 7. 整数反转 | [7. 整数反转](#7) |  |
 | -- | 9. 回文数 | [9. 回文数](#9) | |
 | -- | 136. 只出现一次的数字 | [136. 只出现一次的数字](#136) | |
-| -- | 169. 求众数* | [169. 求众数](#169) | 229 |
+| -- | 169. 求众数* | [169. 求众数](#169) |  229 |
 | -- | 231. 2的幂 | [231. 2的幂](#231) | |
 | [**第四节 排序和搜索**](#排序和搜索) |  |  | |
 | -- | 148. 排序链表 | [148. 排序链表](#148) |  |
 | -- | 33. 搜索旋转排序数组 | [33. 搜索旋转排序数组](#33) | |
-| --| 215. 数组中的第K个最大元素 | [215. 数组中的第K个最大元素](#215) | |
+| -- | 215. 数组中的第K个最大元素 | [215. 数组中的第K个最大元素](#215) | |
 | -- | 230. 二叉搜索树中第K小的元素 | [230. 二叉搜索树中第K小的元素](#230) | |
 | -- | 104. 二叉树的最大深度 | [104. 二叉树的最大深度](#104) | |
 | -- | 124. 二叉树中的最大路径和 | [124. 二叉树中的最大路径和](#124) | |
@@ -302,7 +302,64 @@ public double findMedianSortedArrays(int[] nums1, int[] nums2) {
 
 ```java
 //思路二：
+//1、要求时间复杂度 O(log(m+n)),m+n就是两个数组的长度和，又是有序数组，我们很容易想到二分查找
+//2、求出的结果是中位数，中位数的特点是其以后的数都比它大，前面的数都比它小。
+//3、两个数组都已经是有序数组，
+// 因此我们所需要的结果就是num1[start1,end1]中的第i个元素(下标 start1+i-1)和数组num2[start2,end2]中第j个元素(下标 start+j-1)，
+///在数组num1[start1,end1]中确定i以及在数组中确定num2[start2,end2]，此时可以采用二分查找的方法，
+// 通过不断缩小查找范围来确实所需要查找的值，也符合题目中所要求的分治算法的思想。
+public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+    int len1 = nums1.length;
+    int len2 = nums2.length;
+    int k1 = (len1+len2+1)/2;
+    int k2 = (len1+len2+2)/2;
+    //当 (len1+len2)奇数时，此时 k1==k2;
+    //当 (len1+len2)偶数时，此时 k1+1 == k2
+    double res =
+            (findKth(nums1,0,len1-1,nums2,0,len2-1,k1) +
+                    findKth(nums1,0,len1-1,nums2,0,len2-1,k2))/2;
+    return res;
+}
 
+/**
+ * 查找 nums1[start1,end1] 和 nums2[start2,end2]合并后的第 k 小元素
+ */
+private double findKth(int[] nums1, int start1, int end1, int[] nums2, int start2, int end2, int k) {
+    //计算当前数组范围内的数组长度
+    int len1 = end1 - start1 + 1;
+    int len2 = end2 - start2 + 1;
+    if(len1 > len2){
+        //这里保持 len1 <= len2,方便后面的操作
+        return findKth(nums2,start2,end2,nums1,start1,end1,k);
+    }else if(len1 == 0){
+        //nums1[start1,start2]数组长度为0，则就是在nums2[start2,end2]中第 k 小的元素
+        return nums2[start2+k-1];
+    }else if(k == 1){
+        //合并后的数组的第1个元素，显然是nums1[start1,end1]和nums2[start2,end2]中第一个元素的较小值
+        return Math.min(nums1[start1],nums2[start2]);
+    }
+    //分治
+    int i = Math.min(k/2,len1); //在nums1[start1,end1]中第 i 小元素
+    int j = k - i; //在nums2[start2,end2]中第 j 小元素
+    if(nums1[start1+i-1] > nums2[start2+j-1]){  //此时 nums2[start2,end2]中就要舍弃前面j个元素
+        /**
+         * 使用反证法证明：
+         * 证：当k/2 >= len1 时，而我们要找的k就在nums2[start2,end2]的前 k/2元素中。
+         * 我们假设 k 所在的数组下标记为p，那么nums2[start2,end2]中含有的属于后数组前k个元素的元素有(p+1)个。
+         * 显然，nums1[start1,end1]中必然含有另外 k-(p+1)个元素。
+         * 由此，得到如下不等式：
+         * p <= k/2 - 1 （k th 实际所处位置为p，在nums2[start2,end2]的前k/2个元素里。-1是因为现在算的是数组下标，从0开始）
+         * ==> p + 1 <= k/2；
+         * ==> k - (p+1) >= k - k/2。
+         显然，len1 >= k - (p+1) >= k/2 ，这与上面的假设，k/2 >= len1是矛盾的。
+         */
+        return findKth(nums1,start1,end1,nums2,start2+j,end2,k-j);  //此时就是求第(k-j)小元素
+    }else if(nums1[start1+i-1] < nums2[start2+j-1]){ //此时 nums1[start1,end1]中就要舍弃前面i个元素
+        return findKth(nums1,start1+i,end1,nums2,start2,end2,k-i);
+    }else{
+        return nums1[start1+i-1];
+    }
+}
 ```
 
 ### 5 
@@ -664,9 +721,114 @@ public int singleNumber(int[] nums) {
 输出: 2
 ```
 
-```java
+> 背景知识：摩尔投票算法
+摩尔投票法基于以下定理，找到数组中超过一半的数。
+定理：
+如果一个数组里存在**一个数超过一半**，那么同时删去两个不同的数，超过一半的数仍然超过一半。
+推广-1：
+如果一个数组里有一元素超过1/3，那么同时删除3个不同的数，超过1/3的数仍然超过1/3。
+推广-2：
+如果一个数组里有一元素超过1/k, 那么同时删除k个不同的数，超过1/k的数仍然超过1/k。
 
+```java
+//思路：典型的摩尔投票算法
+//如果删去的两个数有一个是超过一半的：
+//假设每次都删除一个超过一半的，一个不超过一半的，那么一定是不超过一半的数先被删完。
+public int majorityElement(int[] nums) {
+    int majority = nums[0];
+    int count = 0; //统计主元素数目
+    for(int num : nums){
+        if(count ==0){
+            //说明之前假定的主元素并不是主元素 1 1 1 2 2 2 6 6 6 6 6 6 6
+            majority = num;
+            count = 1;
+        }else if(majority == num){
+            count++;
+        }else{
+            count--;
+        }
+    }
+
+    //归0操作，用来统计主元素出现次数
+    count = 0;
+    for(int num : nums){
+        if(num == majority){
+            count++;
+        }
+    }
+    if(count > nums.length/2){
+        return majority;
+    return -1;
+}
 ```
+
+### 229
+> [229. 求众数 II](https://leetcode-cn.com/problems/majority-element-ii/)
+
+```html
+> 问题描述：
+给定一个大小为 n 的数组，找出其中所有出现超过 ⌊ n/3 ⌋ 次的元素。
+
+说明: 要求算法的时间复杂度为 O(n)，空间复杂度为 O(1)。
+
+> 示例：
+示例 1:
+输入: [3,2,3]
+输出: [3]
+
+示例 2:
+输入: [1,1,1,3,3,2,2,2]
+输出: [1,2]
+```
+
+//思路：
+//1、该数组中最多只有2个元素个数超过 1/3 num.length
+//2、仍然采用摩尔投票算法
+public List<Integer> majorityElement(int[] nums) {
+    List<Integer> res = new ArrayList<>();
+    if(nums.length == 0){
+        return res;
+    }
+    int num1 = nums[0];
+    int num2 = -nums[0];
+    int count1 = 0;
+    int count2 = 0;
+    for(int num : nums){
+        if(num == num1){
+            count1++;
+        }else if(num == num2){
+            count2++;
+        }else if(count1==0){
+            num1 = num;
+            count1 = 1;
+        }else if(count2==0){
+            num2 = num;
+            count2 =1;
+        }else{
+            count1--;
+            count2--;
+        }
+    }
+
+    count1 = 0;
+    count2 = 0;
+    for(int num : nums){
+        if(num == num1){
+            count1++;
+        }else if(num == num2){
+            count2++;
+        }
+    }
+    if(count1 > nums.length/3){
+        res.add(num1);
+    }
+    if(count2 > nums.length/3){
+        res.add(num2);
+    }
+    return res;
+}
+```
+
 ### 231
 [231. 2的幂](https://leetcode-cn.com/problems/power-of-two/)
 
@@ -742,7 +904,70 @@ public boolean isPowerOfTwo(int n) {
 ```
 
 ```java
-//
+//思路：
+//1、时间复杂度在 O(n logn)的排序算法，有归并排序、快速排序、堆排序。这里使用归并排序
+//2、注意：链表为空或者链表只有一个元素是不需要排序的
+//3、我们这里归并排序，涉及到递归调用，注意递归结束条件
+public ListNode sortList(ListNode head) {
+    if(head == null || head.next ==null){
+        return head;
+    }
+    ListNode head2 = getMidNode(head);
+    return merge(sortList(head),sortList(head2));
+}
+
+//获取该链表的中间节点(其实是获取以该中间节点为头结点的链表)
+private ListNode getMidNode(ListNode head){
+    //pre指向目标节点的前一个节点
+    ListNode pre = head;
+    ListNode slow = head;
+    ListNode fast = head;
+    while(slow !=null && fast != null){
+        pre = slow;
+        slow = slow.next;
+        fast = fast.next;
+        if(fast!=null){
+            fast = fast.next;
+        }else{
+            break;
+        }
+    }
+    pre.next = null;
+    //此时 slow 指向该链表的中间节点
+    ListNode head2 = slow;
+    return head2;
+}
+
+//合并两个有序链表(类比合并两个有序数组)
+private ListNode merge(ListNode head1,ListNode head2){
+    ListNode dummyHead = new ListNode(-1);
+
+    if(head1 == null){
+        return head2;
+    }
+    if(head2 == null){
+        return  head1;
+    }
+    ListNode tail = dummyHead;
+    while(head1 !=null && head2 != null){
+        if(head1.val < head2.val){
+            tail.next = head1;
+            tail = head1;
+            head1 = head1.next;
+        }else{
+            tail.next = head2;
+            tail = head2;
+            head2 = head2.next;
+        }
+    }
+    if(head1 !=null){
+        tail.next = head1;
+    }
+    if(head2 !=null){
+        tail.next = head2;
+    }
+    return dummyHead.next;
+}
 ```
 
 ### 33
@@ -873,15 +1098,13 @@ private int partition(int[] nums,int start,int end){
 
 ```html
 > 问题描述：
-
-给定一个二叉搜索树，编写一个函数 kthSmallest 来查找其中第 k 个最小的元素。
+给定一个二叉搜索树，编写一个函数 k thSmallest 来查找其中第 k 个最小的元素。
 
 说明：
 你可以假设 k 总是有效的，1 ≤ k ≤ 二叉搜索树元素个数。
 
 > 示例：
 示例 1:
-
 输入: root = [3,1,4,null,2], k = 1
    3
   / \
@@ -889,8 +1112,8 @@ private int partition(int[] nums,int start,int end){
   \
    2
 输出: 1
-示例 2:
 
+示例 2:
 输入: root = [5,3,6,2,4,null,null,1], k = 3
        5
       / \
@@ -903,7 +1126,51 @@ private int partition(int[] nums,int start,int end){
 ```
 
 ```java
+//思路：利用BST的中序遍历的性质，得到的有序的序列
+//写法一：
+//空间复杂度：O(n)
+public int kthSmallest(TreeNode root, int k) {
+    list = new ArrayList<>();
+    inOrder(root);
+    return list.get(k-1);
+}
 
+//存储中序遍历的序列
+private List<Integer> list;
+private void inOrder(TreeNode root){
+    if(root == null){
+        return;
+    }
+    inOrder(root.left);
+    list.add(root.val);
+    inOrder(root.right);
+}
+```
+
+```java
+//写法二：采用变量记录访问节点数目，这样可以轻松判断是否访问到第k个最小元素
+public int kthSmallest(TreeNode root, int k) {
+    K = k;
+    inOrder(root);
+    return res;
+}
+
+private int count = 0 ;//统计访问的节点数
+private int K = 0; //K表示第k小的元素
+private int res = 0 ;
+private void inOrder(TreeNode root){
+    if(root == null){
+        return;
+    }
+    inOrder(root.left);
+    //访问节点
+    count++;
+    if(K==count){
+        res = root.val;
+        return;
+    }
+    inOrder(root.right);
+}
 ```
 
 ### 104
@@ -926,7 +1193,14 @@ private int partition(int[] nums,int start,int end){
 ```
 
 ```java
-
+public int maxDepth(TreeNode root) {
+    if(root==null){
+        return 0;
+    }
+    int leftMaxDepth = maxDepth(root.left);
+    int rightMaxDepth = maxDepth(root.right);
+    return Math.max(leftMaxDepth,rightMaxDepth)+1;
+}
 ```
 
 ### 124
@@ -934,23 +1208,20 @@ private int partition(int[] nums,int start,int end){
 
 ```html
 > 问题描述：
-
 给定一个非空二叉树，返回其最大路径和。
-
-本题中，路径被定义为一条从树中任意节点出发，达到任意节点的序列。该路径至少包含一个节点，且不一定经过根节点。
+本题中，路径被定义为一条从树中任意节点出发，达到任意节点的序列。
+该路径至少包含一个节点，且不一定经过根节点。
 
 > 示例：
 示例 1:
-
 输入: [1,2,3]
 
        1
       / \
      2   3
-
 输出: 6
-示例 2:
 
+示例 2:
 输入: [-10,9,20,null,null,15,7]
 
    -10
@@ -958,7 +1229,6 @@ private int partition(int[] nums,int start,int end){
   9  20
     /  \
    15   7
-
 输出: 42
 ```
 
@@ -972,12 +1242,12 @@ private int partition(int[] nums,int start,int end){
 ```html
 > 问题描述：
 给定一个二叉搜索树, 找到该树中两个指定节点的最近公共祖先。
-百度百科中最近公共祖先的定义为：“对于有根树 T 的两个结点 p、q，最近公共祖先表示为一个结点 x，满足 x 是 p、q 的祖先且 x 的深度尽可能大（一个节点也可以是它自己的祖先）。”
+百度百科中最近公共祖先的定义为：“对于有根树 T 的两个结点 p、q，最近公共祖先表示为一个结点 x，
+满足 x 是 p、q 的祖先且 x 的深度尽可能大（一个节点也可以是它自己的祖先）。”
 
 例如，给定如下二叉搜索树:  root = [6,2,8,0,4,7,9,null,null,3,5]
-
-<div align="center"><img src="pics\\bf_1.png" width="400"/></div>
 ```
+<div align="center"><img src="pics\\bf_1.png" width="400"/></div>
 
 ```java
 
@@ -989,12 +1259,12 @@ private int partition(int[] nums,int start,int end){
 ```html
 > 问题描述：
 给定一个二叉树, 找到该树中两个指定节点的最近公共祖先。
-百度百科中最近公共祖先的定义为：“对于有根树 T 的两个结点 p、q，最近公共祖先表示为一个结点 x，满足 x 是 p、q 的祖先且 x 的深度尽可能大（一个节点也可以是它自己的祖先）。”
+百度百科中最近公共祖先的定义为：“对于有根树 T 的两个结点 p、q，最近公共祖先表示为一个结点 x，
+满足 x 是 p、q 的祖先且 x 的深度尽可能大（一个节点也可以是它自己的祖先）。”
 
 例如，给定如下二叉树:  root = [3,5,1,6,2,0,8,null,null,7,4]
-
-<div align="center"><img src="pics\\bf_2.png" width="400"/></div>
 ```
+<div align="center"><img src="pics\\bf_2.png" width="400"/></div>
 
 ```java
 
