@@ -3,44 +3,44 @@
 | 章节 | 题目 |  解答 | 扩展 | 
 | :--: | :-- | :-- | :--: |
 | [**第一节 数组和字符串**](#数组和字符串) |  |   |  |
-| -- | 1. 两数之和 | [1. 两数之和](#1) | 18 |
-| -- | 15. 三数之和| [15. 三数之和](#15) | |
-| -- | 16. 最接近的三数之和 | [16. 最接近的三数之和](#16) | |
-| -- | 4. 寻找两个有序数组的中位数 | [4. 寻找两个有序数组的中位数](#4) | |
-| -- | 5. 最长回文子串* | [5. 最长回文子串](#5) | |
+| 1 | 1. 两数之和 | [1. 两数之和](#1) | 18 |
+| 15 | 15. 三数之和| [15. 三数之和](#15) | |
+| 16 | 16. 最接近的三数之和 | [16. 最接近的三数之和](#16) | |
+| 4 | 4. 寻找两个有序数组的中位数 | [4. 寻找两个有序数组的中位数](#4) | |
+| 5 | 5. 最长回文子串* | [5. 最长回文子串](#5) | |
 | [**第二节 链表**](#链表) |  |  | |
-| -- | 206. 反转链表 | [206. 反转链表](#206) | |
-| -- | 2. 两数相加 | [2. 两数相加](#2) | 445 |
-| -- | 21. 合并两个有序链表 | [21. 合并两个有序链表](#21) | |
+| 206 | 206. 反转链表 | [206. 反转链表](#206) | |
+| 2 | 2. 两数相加 | [2. 两数相加](#2) | 445 |
+| 21 | 21. 合并两个有序链表 | [21. 合并两个有序链表](#21) | |
 | [**第三节 数学和数字**](#数学和数字) |  |  | |
-| -- | 7. 整数反转 | [7. 整数反转](#7) |  |
-| -- | 9. 回文数 | [9. 回文数](#9) | |
-| -- | 136. 只出现一次的数字 | [136. 只出现一次的数字](#136) | |
-| -- | 169. 求众数* | [169. 求众数](#169) |  229 |
-| -- | 231. 2的幂 | [231. 2的幂](#231) | |
+| 7 | 7. 整数反转 | [7. 整数反转](#7) |  |
+| 9 | 9. 回文数 | [9. 回文数](#9) | |
+| 136 | 136. 只出现一次的数字 | [136. 只出现一次的数字](#136) | |
+| 169 | 169. 求众数* | [169. 求众数](#169) |  229 |
+| 231 | 231. 2的幂 | [231. 2的幂](#231) | |
 | [**第四节 排序和搜索**](#排序和搜索) |  |  | |
-| -- | 148. 排序链表 | [148. 排序链表](#148) |  |
-| -- | 33. 搜索旋转排序数组 | [33. 搜索旋转排序数组](#33) | |
-| -- | 215. 数组中的第K个最大元素 | [215. 数组中的第K个最大元素](#215) | |
-| -- | 230. 二叉搜索树中第K小的元素 | [230. 二叉搜索树中第K小的元素](#230) | |
-| -- | 104. 二叉树的最大深度 | [104. 二叉树的最大深度](#104) | |
-| -- | 124. 二叉树中的最大路径和 | [124. 二叉树中的最大路径和](#124) | |
-| -- | 235. 二叉搜索树的最近公共祖先 | [235. 二叉搜索树的最近公共祖先](#235) | |
-| -- | 236. 二叉树的最近公共祖先 | [236. 二叉树的最近公共祖先](#236) | |
+| 148 | 148. 排序链表 | [148. 排序链表](#148) |  |
+| 33 | 33. 搜索旋转排序数组 | [33. 搜索旋转排序数组](#33) | |
+| 215 | 215. 数组中的第K个最大元素 | [215. 数组中的第K个最大元素](#215) | |
+| 230 | 230. 二叉搜索树中第K小的元素 | [230. 二叉搜索树中第K小的元素](#230) | |
+| 104 | 104. 二叉树的最大深度 | [104. 二叉树的最大深度](#104) | |
+| 124 | 124. 二叉树中的最大路径和 | [124. 二叉树中的最大路径和](#124) | 112 257 |
+| 235 | 235. 二叉搜索树的最近公共祖先 | [235. 二叉搜索树的最近公共祖先](#235) | |
+| 236 | 236. 二叉树的最近公共祖先 | [236. 二叉树的最近公共祖先](#236) | |
 | [**第五节 回溯算法**](#回溯算法) |  |  | |
-| -- | 22. 括号生成 | [22. 括号生成](#22) | |
-| -- | 78. 子集 | [78. 子集](#78) | |
-| -- | 46. 全排列 | [46. 全排列](#46) | |
-| -- | 89. 格雷编码 | [89. 格雷编码](#89) | |
+| 22 | 22. 括号生成 | [22. 括号生成](#22) | |
+| 79 | 78. 子集 | [78. 子集](#78) | |
+| 46 | 46. 全排列 | [46. 全排列](#46) | |
+| 89 | 89. 格雷编码 | [89. 格雷编码](#89) | |
 | [**第六节 动态规划**](#动态规划) |  |  | |
-| -- | 70. 爬楼梯 | [70. 爬楼梯](#70) |  |
-| -- | 53. 最大子序和 | [53. 最大子序和](#53) | |
-| -- | 121. 买卖股票的最佳时机 | [121. 买卖股票的最佳时机](#121) | |
-| -- | 122. 买卖股票的最佳时机 II | [122. 买卖股票的最佳时机 II](#122) | |
-| -- | 62. 不同路径 | [62. 不同路径](#62) | |
+| 70 | 70. 爬楼梯 | [70. 爬楼梯](#70) |  |
+| 53 | 53. 最大子序和 | [53. 最大子序和](#53) | |
+| 121 | 121. 买卖股票的最佳时机 | [121. 买卖股票的最佳时机](#121) | |
+| 122 | 122. 买卖股票的最佳时机 II | [122. 买卖股票的最佳时机 II](#122) | |
+| 62 | 62. 不同路径 | [62. 不同路径](#62) | |
 | [**第七节 设计**](#设计) |  |  |  |
-| -- | 146. LRU缓存机制 | [146. LRU缓存机制](#146) | |
-| -- | 155. 最小栈 | [155. 最小栈](#155) | |
+| 146 | 146. LRU缓存机制 | [146. LRU缓存机制](#146) | |
+| 155 | 155. 最小栈 | [155. 最小栈](#155) | |
 
 # 腾讯精选练习
 
@@ -722,12 +722,19 @@ public int singleNumber(int[] nums) {
 ```
 
 > 背景知识：摩尔投票算法
+
 摩尔投票法基于以下定理，找到数组中超过一半的数。
+
 定理：
+
 如果一个数组里存在**一个数超过一半**，那么同时删去两个不同的数，超过一半的数仍然超过一半。
+
 推广-1：
+
 如果一个数组里有一元素超过1/3，那么同时删除3个不同的数，超过1/3的数仍然超过1/3。
+
 推广-2：
+
 如果一个数组里有一元素超过1/k, 那么同时删除k个不同的数，超过1/k的数仍然超过1/k。
 
 ```java
@@ -781,6 +788,7 @@ public int majorityElement(int[] nums) {
 输出: [1,2]
 ```
 
+```java
 //思路：
 //1、该数组中最多只有2个元素个数超过 1/3 num.length
 //2、仍然采用摩尔投票算法
@@ -1233,7 +1241,39 @@ public int maxDepth(TreeNode root) {
 ```
 
 ```java
+//思路：本题的最大难点就是不知道该路径是否是从根结点出发的。
+//1、在递归函数中，如果当前结点不存在，那么直接返回0。
+//2、分别对当前结点的左右子树调用递归函数，
+//由于路径和有可能为负数，而我们当然不希望加上负的路径和，所以我们和0相比，取较大的那个，就是要么不加，加就要加正数。
+//3、然后我们来更新全局最大值结果res，就是以左子结点为终点的最大path之和加上以右子结点为终点的最大path之和，
+//加上当前结点值，这样就组成了一条完整的路径。
 
+private int max = Integer.MIN_VALUE;
+public int maxPathSum(TreeNode root) {
+    if(root==null){
+        return 0;
+    }
+    path(root);
+    return max;
+}
+
+/**
+ * 返回以node为根节点的子树的最大路径和
+ */
+public int path(TreeNode node){
+    if(node == null){
+        return 0;
+    }
+    //由于路径和有可能为负数，而我们当然不希望加上负的路径和，所以我们和0相比，取较大的那个，
+    //就是要么不加，加就要加正数。
+    int leftPathSum = Math.max(path(node.left),0);
+    int rithtPathSum = Math.max(path(node.right),0);
+    //求最大路径和，
+    //max 更新，说明路径可能经过该 node,
+    //max 仍为元素，说明路径不经过该 node
+    max = Math.max(leftPathSum+rithtPathSum+node.val,max);
+    return Math.max(leftPathSum,rithtPathSum)+node.val;
+}
 ```
 
 ### 235
@@ -1249,8 +1289,38 @@ public int maxDepth(TreeNode root) {
 ```
 <div align="center"><img src="pics\\bf_1.png" width="400"/></div>
 
-```java
+```html
+示例：
+示例 1:
+输入: root = [6,2,8,0,4,7,9,null,null,3,5], p = 2, q = 8
+输出: 6 
+解释: 节点 2 和节点 8 的最近公共祖先是 6。
 
+示例 2:
+输入: root = [6,2,8,0,4,7,9,null,null,3,5], p = 2, q = 4
+输出: 2
+解释: 节点 2 和节点 4 的最近公共祖先是 2, 因为根据定义最近公共祖先节点可以为节点本身。
+```
+
+```java
+//思路：利用二叉搜索树的性质
+//1、比较节点值决定p、q节点在该root为根节点的BST的左子树、还是右子树中。
+//2、p，q 分别在root为根节点的BST的左子树、还是右子树中(p在左子树、q在右子树，也有可能p在右子树、q在左子树),
+//则 root就是最近的公共祖先。
+//3、p、q都在左子树，递归访问左子树
+//4、p、q都在右子树，递归访问右子树
+public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+    if(root == null) {
+        return null;
+    }
+    if((p.val < root.val) && (q.val < root.val)){
+        return lowestCommonAncestor(root.left,p,q);
+    }
+    if((p.val > root.val) && (q.val > root.val)){
+        return lowestCommonAncestor(root.right,p,q);
+    }
+    return root;
+}
 ```
 
 ### 236
@@ -1266,8 +1336,122 @@ public int maxDepth(TreeNode root) {
 ```
 <div align="center"><img src="pics\\bf_2.png" width="400"/></div>
 
-```java
+```html
+> 示例：
+示例 1:
+输入: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 1
+输出: 3
+解释: 节点 5 和节点 1 的最近公共祖先是节点 3。
 
+示例 2:
+输入: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 4
+输出: 5
+解释: 节点 5 和节点 4 的最近公共祖先是节点 5。因为根据定义最近公共祖先节点可以为节点本身。
+```
+```java
+//思路一：类似235题思路，只是比较麻烦的是：在一般二叉树中，判断某结点在该二叉树的左子树还是右子树中。
+//测试用例 30/31,但是会超时，不建议使用。
+public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+    if(root == null){
+        return null;
+    }
+    List<Integer> list = new ArrayList<>();
+    inOrder(root,list);
+    System.out.println(list);
+    if(isLeftChid(root,p,list) && isLeftChid(root,q,list)){
+        return lowestCommonAncestor(root.left,p,q);
+    }
+    if(isRightChid(root,p,list) && isRightChid(root,q,list)){
+        return lowestCommonAncestor(root.right,p,q);
+    }
+    return root;
+}
+
+private void inOrder(TreeNode root,List<Integer> list){
+    if(root == null){
+        return;
+    }
+    inOrder(root.left,list);
+    list.add(root.val);
+    inOrder(root.right,list);
+}
+
+//返回根节点在list中的下标
+private int find(int rootVal,List<Integer> list){
+    for(int i=0;i<list.size();i++){
+        if(list.get(i) == rootVal){
+            return i;
+        }
+    }
+    return -1;
+}
+
+private boolean isLeftChid(TreeNode root,TreeNode p,List<Integer> list){
+    if(root == null){
+        return true;
+    }
+    int index = find(root.val,list);
+
+    int index2 = -1;
+    for(int i=0;i< index ;i++){
+        if(list.get(i) == p.val){
+            index2 = i;
+        }
+    }
+    if(index2 ==-1){
+        return false;
+    }
+    return true;
+}
+
+private boolean isRightChid(TreeNode root,TreeNode p,List<Integer> list){
+    if(root == null){
+        return true;
+    }
+    int index = find(root.val,list);
+
+    int index2 = -1;
+    for(int i=index+1;i< list.size() ;i++){
+        if(list.get(i) == p.val){
+            index2 = i;
+        }
+    }
+    if(index2 ==-1){
+        return false;
+    }
+    return true;
+}
+```
+
+```java
+//思路二：
+//1、考虑 p 或 q 是父结点的情况 
+//2、接着考虑 p，q是否在左子树有最近公共父结点
+//3、接着考虑 p，q是否在右子树有最近公共父结点
+//4、p，q是否在左、右子树都有最近公共父结点，则说明该父节点就是 root
+public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+    if(root == null){
+        return null;
+    }
+    //如果 p或者是q是根节点，那么该root就是他们最近的公共父节点
+    if(p== root || q==root){
+        return root;
+    }
+    //p，q 在左子树中是否有公共父节点
+    TreeNode left = lowestCommonAncestor(root.left,p,q);
+    //p，q 在右子树中是否有公共父节点
+    TreeNode right = lowestCommonAncestor(root.left,p,q);
+    if(left!=null && right!=null){
+        return root;
+    }
+    if(left != null){
+        return left;
+    }
+    if(right != null){
+        return right;
+    }
+    return null;
+}
 ```
 
 ## 回溯算法
