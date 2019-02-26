@@ -16,7 +16,7 @@
 | 7 | 7. 整数反转 | [7. 整数反转](#7) |  |
 | 9 | 9. 回文数 | [9. 回文数](#9) | |
 | 136 | 136. 只出现一次的数字 | [136. 只出现一次的数字](#136) | |
-| 169 | 169. 求众数* | [169. 求众数](#169) |  229 |
+| 169* | 169. 求众数 | [169. 求众数](#169) |  229 |
 | 231 | 231. 2的幂 | [231. 2的幂](#231) | |
 | [**第四节 排序和搜索**](#排序和搜索) |  |  | |
 | 148 | 148. 排序链表 | [148. 排序链表](#148) |  |
@@ -28,7 +28,7 @@
 | 235 | 235. 二叉搜索树的最近公共祖先 | [235. 二叉搜索树的最近公共祖先](#235) | |
 | 236 | 236. 二叉树的最近公共祖先 | [236. 二叉树的最近公共祖先](#236) | |
 | [**第五节 回溯算法**](#回溯算法) |  |  | |
-| 22 | 22. 括号生成 | [22. 括号生成](#22) | |
+| 22* | 22. 括号生成 | [22. 括号生成](#22) | |
 | 79 | 78. 子集 | [78. 子集](#78) | |
 | 46 | 46. 全排列 | [46. 全排列](#46) | |
 | 89 | 89. 格雷编码 | [89. 格雷编码](#89) | |
@@ -1474,7 +1474,111 @@ public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
 ```
 
 ```java
+//思路一：暴力解法，但是会超出时间限制
+private char[] chs;
+private List<String> res;
+private boolean[] visited;
 
+public List<String> generateParenthesis(int n) {
+    res = new ArrayList<>();
+    if( n<=0){
+        return res;
+    }
+    chs = new char[2*n];
+    for(int i=0;i<n;i++){
+        chs[i] = '(';
+    }
+    for(int i=n;i<2*n;i++){
+        chs[i] = ')';
+    }
+    visited = new boolean[2*n];
+    StringBuilder builder = new StringBuilder();
+    generateParenthesis(chs,0,builder);
+
+    HashSet<String> set = new HashSet<>(res);
+    res.clear();
+    res.addAll(set);
+    return res;
+}
+
+private void generateParenthesis(char[] chs,int index,StringBuilder builder){
+    if(index == chs.length && isValid(builder.toString())){
+        System.out.println(builder);
+        res.add(builder.toString());
+        return;
+    }
+    for(int i=0;i<chs.length;i++){
+        if(visited[i] == false){
+            builder.append(chs[i]);
+            visited[i] = true;
+            generateParenthesis(chs,index+1,builder);
+            //System.out.println(builder.toString());
+            builder.deleteCharAt(builder.length()-1);
+            visited[i] = false;
+        }
+    }
+    return;
+}
+
+//判断该字符串是否是括号匹配的字符串
+private boolean isValid(String s){
+    Stack<Character> stack = new Stack<>();
+    for(int i=0;i<s.length();i++){
+        char c = s.charAt(i);
+        if(c =='('){
+            stack.push(c);
+        }else{ // c==')'
+            if(stack.isEmpty()){
+                return false;
+            }
+            //弹出栈顶元素
+            stack.pop();
+        }
+    }
+    return stack.isEmpty();
+}
+```
+
+```java
+//思路二：
+//递归终止条件：如果左右括号都没了，那么把解返回解空间。
+//选择条件1：如果左括号还有，那么就递归。
+//递归关系： 如果左括号还有，那么就用掉一个左括号（字符串+“（”，函数中left-1）
+//选择条件2：如果左括号剩余数量小于右括号剩余数量，那么就递归。
+//递归关系： 用掉一个右括号
+
+private List<String> res;
+
+public List<String> generateParenthesis(int n) {
+    res = new ArrayList<>();
+    if(n <= 0){
+        return res;
+    }
+    StringBuilder builder = new StringBuilder();
+    generateParenthesis(n,n,builder);
+    return res;
+}
+
+private void generateParenthesis(int left,int right,StringBuilder builder){
+    if(left == 0 && right==0){
+        System.out.println("builder:"+builder.toString());
+        res.add(builder.toString());
+        return;
+    }
+    if(left>0){
+        builder.append('(');
+        generateParenthesis(left-1,right,builder);
+        System.out.println("[left="+left+",right="+right+"]\tafter add ( :"+builder.toString());
+        builder.deleteCharAt(builder.length()-1);
+    }
+    if(left<right){
+        builder.append(')');
+        generateParenthesis(left,right-1,builder);
+        System.out.println("[left="+left+",right="+right+"]\tafter add ) :"+builder.toString());
+        builder.deleteCharAt(builder.length()-1);
+    }
+    return;
+}
 ```
 
 ### 78
@@ -1502,7 +1606,26 @@ public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
 ```
 
 ```java
+private List<List<Integer>> res;
 
+public List<List<Integer>> subsets(int[] nums) {
+    res = new ArrayList<>();
+    if(nums ==null){ //nums是空集，则只能返回空集
+        return res;
+    }
+    List<Integer> p = new ArrayList<>();
+    generateSubsets(nums,0,p);
+    return res;
+}
+
+private void generateSubsets(int[] nums,int index,List<Integer> p){
+    res.add(new ArrayList<>(p));
+    for(int i=index;i<nums.length;i++){
+        p.add(nums[i]);
+        generateSubsets(nums,i+1,p);
+        p.remove(p.size()-1);
+    }
+}
 ```
 
 ### 46
@@ -1526,7 +1649,37 @@ public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
 ```
 
 ```java
+private List<List<Integer>> res;
 
+//题目要求：没有重复数字的序列。visited记录该元素是否被访问 true 表示被访问了
+private boolean[] visited;
+
+ //向这个排列的末尾添加第(index+1)(因为index是从0开始的)个元素，得到(index+1)个元素的排列
+ //p 存储[0...index-1]的排列
+private void generatePermution(int[] nums, int index, List<Integer> p){
+    if(index == nums.length){
+        res.add(new ArrayList<>(p));
+        return;
+    }
+    for(int i=0;i<nums.length;i++){
+        if(visited[i]==false){
+            p.add(nums[i]);
+            visited[i] = true;
+            generatePermution(nums,index+1,p);
+            p.remove(p.size()-1);
+            visited[i] = false;
+        }
+    }
+    return;
+}
+
+public List<List<Integer>> permute(int[] nums) {
+    res = new ArrayList<>();
+    visited = new boolean[nums.length]; //默认初始化为false
+    List<Integer> p = new ArrayList<>();
+    generatePermution(nums,0,p);
+    return res;
+}
 ```
 
 ### 89
