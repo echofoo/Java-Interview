@@ -22,9 +22,11 @@
 | <h3>:zap: 模块三 字节跳动精选</h3> | [字节跳动精选练习](https://github.com/DuHouAn/Java-Interview/blob/master/BigFactoryNotes/01ByteDanceNotes.md) |
 | <h3>:bulb: 模块四 Top100 </h3>  | [Top 100](https://github.com/DuHouAn/Java-Interview/blob/master/BigFactoryNotes/02Top100.md)|
 
-<details>
-  <summary>:hammer: **模块一  LeetCode题解笔记**</summary>
-  <p>[第一节 数组问题](https://github.com/DuHouAn/Java-Interview/blob/master/SolutionsNotes/01%E6%95%B0%E7%BB%84%E9%97%AE%E9%A2%98.md)</p>
-  <p>[第二节 查找表问题](https://github.com/DuHouAn/Java-Interview/blob/master/SolutionsNotes/02%E6%9F%A5%E6%89%BE%E9%97%AE%E9%A2%98.md)</p>
-</details>
 
+<details>
+	<summary><strong>:hammer: 模块一  LeetCode题解笔记<strong></summary>
+	<ol>
+		<li><a href="https://github.com/DuHouAn/Java-Interview/blob/master/SolutionsNotes/01%E6%95%B0%E7%BB%84%E9%97%AE%E9%A2%98.md">第一节 数组问题</a></li>
+		<li><a href="https://github.com/DuHouAn/Java-Interview/blob/master/SolutionsNotes/02%E6%9F%A5%E6%89%BE%E9%97%AE%E9%A2%98.md">第二节 查找表问题</a></li> 
+	</ol>
+</details>
