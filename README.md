@@ -21,3 +21,8 @@
 | <h3>:penguin: 模块二 腾讯精选 </h3>| [腾讯精选练习](https://github.com/DuHouAn/Java-Interview/blob/master/BigFactoryNotes/00TencentNotes.md)|
 | <h3>:zap: 模块三 字节跳动精选</h3> | [字节跳动精选练习](https://github.com/DuHouAn/Java-Interview/blob/master/BigFactoryNotes/01ByteDanceNotes.md) |
 | <h3>:bulb: 模块四 Top100 </h3>  | [Top 100](https://github.com/DuHouAn/Java-Interview/blob/master/BigFactoryNotes/02Top100.md)|
+
+<details>
+  <summary><h3>:hammer: 模块一  LeetCode题解笔记</h3></summary>
+  <p> - 测试 测试测试</p>
+</details>
