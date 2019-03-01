@@ -41,7 +41,7 @@
 	</ul>
 </details>
 
-## bulb: 模块四 Top100
+## :bulb: 模块四 Top100
 
 <details>
 	<summary><strong>Top100<strong></summary>
@@ -53,9 +53,10 @@
 ## :pencil2: 模块五 进阶
 
 <details>
-	<summary><strong>进阶一 股票问题<strong></summary>
+	<summary><strong>进阶一 经典动态规划问题<strong></summary>
 	<ul>
-		<li><a href="">股票问题</a></li>
+		<li><a href="https://github.com/DuHouAn/Java-Interview/blob/master/BigFactoryNotes/03Stocks.md">股票问题</a></li>
+		<li><a href="https://github.com/DuHouAn/Java-Interview/blob/master/BigFactoryNotes/04Knapsack.md">背包问题</a></li>
 	</ul>
 </details>
 
