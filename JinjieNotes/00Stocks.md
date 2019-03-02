@@ -1,14 +1,16 @@
 - [返回首页](https://github.com/DuHouAn/Java-Interview)
 
 <details>
-	<summary><strong>股票交易问题<strong></summary>
+	<summary>股票交易问题</summary>
 	<ul>
-		<li><a href="https://github.com/DuHouAn/Java-Interview/blob/master/JinjieNotes/00Stocks.md">股票问题</a></li>
-		<li><a href="https://github.com/DuHouAn/Java-Interview/blob/master/JinjieNotes/01Knapsack.md">背包问题</a></li>
+		<li><a href="https://github.com/DuHouAn/Java-Interview/blob/master/JinjieNotes/00Stocks.md#121">121.买卖股票的最佳时机</a></li>
+		<li><a href="https://github.com/DuHouAn/Java-Interview/blob/master/JinjieNotes/00Stocks.md#122">122.买卖股票的最佳时机 II</a></li>
+		<li><a href="https://github.com/DuHouAn/Java-Interview/blob/master/JinjieNotes/00Stocks.md#123">123.买卖股票的最佳时机 III</a></li>
+		<li><a href="https://github.com/DuHouAn/Java-Interview/blob/master/JinjieNotes/00Stocks.md#188">188.买卖股票的最佳时机 IV</a></li>
+		<li><a href="https://github.com/DuHouAn/Java-Interview/blob/master/JinjieNotes/00Stocks.md#309">309.买卖股票时机含冷冻期</a></li>
+		<li><a href="https://github.com/DuHouAn/Java-Interview/blob/master/JinjieNotes/00Stocks.md#714">714.买卖股票时机含手续费</a></li>
 	</ul>
 </details>
-
-- [121](#121)
 
 ## 121 
 [121. 买卖股票的最佳时机](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/)
