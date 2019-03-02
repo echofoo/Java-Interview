@@ -31,7 +31,7 @@
 | 22* | 22. 括号生成 | [22. 括号生成](#22) | |
 | 79 | 78. 子集 | [78. 子集](#78) | |
 | 46 | 46. 全排列 | [46. 全排列](#46) | |
-| 89 | 89. 格雷编码 | [89. 格雷编码](#89) | |
+| 89* | 89. 格雷编码 | [89. 格雷编码](#89) | |
 | [**第六节 动态规划**](#动态规划) |  |  | |
 | 70 | 70. 爬楼梯 | [70. 爬楼梯](#70) |  |
 | 53 | 53. 最大子序和 | [53. 最大子序和](#53) | |
@@ -1587,7 +1587,6 @@ private void generateParenthesis(int left,int right,StringBuilder builder){
 ```html
 > 问题描述：
 给定一组不含重复元素的整数数组 nums，返回该数组所有可能的子集（幂集）。
-
 说明：解集不能包含重复的子集。
 
 > 示例:
@@ -1688,7 +1687,6 @@ public List<List<Integer>> permute(int[] nums) {
 ```html
 > 问题描述：
 格雷编码是一个二进制数字系统，在该系统中，两个连续的数值仅有一个位数的差异。
-
 给定一个代表编码总位数的非负整数 n，打印其格雷编码序列。格雷编码序列必须以 0 开头。
 
 > 示例：
@@ -1711,15 +1709,64 @@ public List<List<Integer>> permute(int[] nums) {
 
 输入: 0
 输出: [0]
-解释: 我们定义格雷编码序列必须以 0 开头。
-     给定编码总位数为 n 的格雷编码序列，其长度为 2^n。当 n = 0 时，长度为 2^0 = 1。
-     因此，当 n = 0 时，其格雷编码序列为 [0]。
+解释: 我们定义格雷编码序列必须以 0 开头。给定编码总位数为 n 的格雷编码序列，其长度为 2^n。
+当 n = 0 时，长度为 2^0 = 1。因此，当 n = 0 时，其格雷编码序列为 [0]。
 ```
 
 ```java
-
+//思路一：公式法
+public List<Integer> grayCode(int n) {
+    List<Integer> res = new ArrayList<>();
+    if(n == 0){
+        res.add(0);
+        return res;
+    }
+    for(int i = 0;i < (1<<n); i++){
+        //会有这样的公式，因为 两个连续的数值仅有一个位数的差异。
+        int grayCode = i^(i/2);
+        res.add(grayCode);
+    }
+    return res;
+}
 ```
 
+```java
+//思路二:回溯法,通过下图，来总结规律
+```
+
+<div align="center"><img src="pics\\bf_3.png" width="400"/></div>
+
+```java
+//可以发现: 2位的格雷码后1位是镜像对称；3位的格雷码后2位是镜像对称。
+//规律就是n位格雷码是在(n-1)位格雷码的基础上，先将n-1位镜像对称然后前一半首位添0，后一半首位添1而得到。
+//如果要输出n位的格雷码就得得到(n-1)位格雷码。
+public List<Integer> grayCode(int n) {
+    List<Integer> res = new ArrayList<>();
+    if(n == 0) {
+        res.add(0);
+        return res;
+    }
+
+    //先获取(n-1)位的格雷编码
+    res = grayCode(n-1);
+
+    //(n-1)位格雷编码的数量就是 size，则此时 n 位格雷编码数量就是 2*size
+    int size = res.size();
+    //由于前一半是在(n-1)位格雷编码对应的二进制前面加0，
+    //对数值大小没有影响(比如 01 --> 001 值任然为1)，就保留在res中
+    //此时要想办法获取另一半元素
+
+    //由于是进行，我们从后向前遍历
+    for(int i = size-1;i>=0;i--){
+        // n - 1 = 1 时，1<<(n-1) = (10) 二进制
+        // n - 1 = 2 时，1<<(n-1) = (100) 二进制
+        // n - 1 = 3 时，1<<(n-1) = (1000) 二进制
+        //后一半首位添1
+        res.add((1<<(n-1)) + res.get(i));
+    }
+    return res;
+}
+```
 
 ## 动态规划
 ### 70
@@ -1749,7 +1796,21 @@ public List<List<Integer>> permute(int[] nums) {
 ```
 
 ```java
+public int climbStairs(int n) {
+    if(n==1){
+        return 1;
+    }
 
+    int[] dp = new int[n+1];
+
+    dp[0] = 1;
+    dp[1] = 1;
+    for(int i=2;i<n+1;i++){
+        dp[i] = dp[i-1] + dp[i-2];
+    }
+
+    return dp[n];
+}
 ```
 
 ### 53
@@ -1778,9 +1839,7 @@ public List<List<Integer>> permute(int[] nums) {
 ```html
 > 问题描述：
 给定一个数组，它的第 i 个元素是一支给定股票第 i 天的价格。
-
 如果你最多只允许完成一笔交易（即买入和卖出一支股票），设计一个算法来计算你所能获取的最大利润。
-
 注意你不能在买入股票前卖出股票。
 
 > 示例：
@@ -1797,7 +1856,23 @@ public List<List<Integer>> permute(int[] nums) {
 ```
 
 ```java
-
+//思路:
+//使用minStock用来维护数组中的最小值，maxProfit来维护最大收益
+// 时间复杂度：时间复杂度：O(n)
+public int maxProfit(int[] prices) {
+    int n = prices.length;
+    if(n==0 || n==1){
+        return 0;
+    }
+    int minValue = prices[0];
+    //初始时，不进行交易，当然收益为0
+    int maxProfit  = 0 ;
+    for(int i=1;i<n;i++){
+        minValue = Math.min(minValue,prices[i]);
+        maxProfit = Math.max(maxProfit,prices[i]-minValue);
+    }
+    return maxProfit;
+}
 ```
 
 ### 122
@@ -1830,7 +1905,20 @@ public List<List<Integer>> permute(int[] nums) {
 ```
 
 ```java
-
+//思路：贪心策略，只要相邻两天中，股价上涨就买，尽量多的进行交易
+public int maxProfit(int[] prices) {
+    int n = prices.length;
+    if(n==0 || n==1){
+        return 0;
+    }
+    int maxProfit = 0;
+    for(int i=1;i<n;i++){
+        if(prices[i]>prices[i-1]){ //只要相邻两天中，股价上涨就进行交易
+            maxProfit += prices[i] - prices[i-1];
+        }
+    }
+    return maxProfit;
+}
 ```
 
 ### 62
