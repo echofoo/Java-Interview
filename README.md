@@ -53,18 +53,23 @@
 ## :pencil2: 模块五 进阶
 
 <details>
-	<summary><strong>进阶一 经典动态规划问题<strong></summary>
+	<summary><strong>进阶一 经典问题<strong></summary>
 	<ul>
-		<li><a href="https://github.com/DuHouAn/Java-Interview/blob/master/JinjieNotes/00Stocks.md">股票问题</a></li>
-		<li><a href="https://github.com/DuHouAn/Java-Interview/blob/master/JinjieNotes/01Knapsack.md">背包问题</a></li>
+		<li><a href="https://github.com/DuHouAn/Java-Interview/blob/master/JinjieNotes/00dp.md">经典动态规划问题</a></li>
 	</ul>
+</details>
+
+<details>
 	<summary><strong>进阶二 海量数据处理<strong></summary>
 	<ul>
 		<li><a href="https://github.com/DuHouAn/Java-Interview/blob/master/JinjieNotes/00Stocks.md">海量数据处理</a></li>
 		<li><a href="https://github.com/DuHouAn/Java-Interview/blob/master/JinjieNotes/01Knapsack.md">MapReduce</a></li>
 		<li><a href="https://github.com/DuHouAn/Java-Interview/blob/master/JinjieNotes/01Knapsack.md">TopK</a></li>
 	</ul>
-	<summary><strong>进阶三 实用问题<strong></summary>
+</details>
+
+<details>
+<summary><strong>进阶三 实用问题<strong></summary>
 	<ul>
 		<li><a href="https://github.com/DuHouAn/Java-Interview/blob/master/JinjieNotes/00Stocks.md">扫二维码登录过程</a></li>
 		<li><a href="https://github.com/DuHouAn/Java-Interview/blob/master/JinjieNotes/01Knapsack.md">抢红包算法</a></li>
