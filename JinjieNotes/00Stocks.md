@@ -1,6 +1,14 @@
 - [返回首页](https://github.com/DuHouAn/Java-Interview)
 
-# 股票交易问题
+<details>
+	<summary><strong>股票交易问题<strong></summary>
+	<ul>
+		<li><a href="https://github.com/DuHouAn/Java-Interview/blob/master/JinjieNotes/00Stocks.md">股票问题</a></li>
+		<li><a href="https://github.com/DuHouAn/Java-Interview/blob/master/JinjieNotes/01Knapsack.md">背包问题</a></li>
+	</ul>
+</details>
+
+- [121](#121)
 
 ## 121 
 [121. 买卖股票的最佳时机](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/)
