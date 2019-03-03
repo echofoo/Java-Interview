@@ -23,34 +23,39 @@
 	</ul>
 </details>
 
-## :penguin: 模块二 腾讯精选
+## :book: 模块二 大厂面试精选
 
 <details>
-	<summary><strong>腾讯精选<strong></summary>
+	<summary><strong>第一部分 🐧腾讯精选<strong></summary>
 	<ul>
 		<li><a href="https://github.com/DuHouAn/Java-Interview/blob/master/BigFactoryNotes/00TencentNotes.md">腾讯精选练习</a></li>
 	</ul>
 </details>
 
-## :zap: 模块三 字节跳动精选
-
 <details>
-	<summary><strong>字节跳动精选<strong></summary>
+	<summary><strong>第二部分 ⚡️字节跳动精选<strong></summary>
 	<ul>
 		<li><a href="https://github.com/DuHouAn/Java-Interview/blob/master/BigFactoryNotes/01ByteDanceNotes.md">字节跳动精选练习</a></li>
 	</ul>
 </details>
 
-## :bulb: 模块四 Top100
+## :bulb: 模块三 Top
 
 <details>
-	<summary><strong>Top100<strong></summary>
+	<summary><strong>第一部分 💚Top100<strong></summary>
 	<ul>
-		<li><a href="https://github.com/DuHouAn/Java-Interview/blob/master/BigFactoryNotes/02Top100.md">Top100</a></li>
+		<li><a href="https://github.com/DuHouAn/Java-Interview/blob/master/BigFactoryNotes/02Top100.md">点赞数最高的100道Leetcode问题</a></li>
 	</ul>
 </details>
 
-## :pencil2: 模块五 进阶
+<details>
+	<summary><strong>第二部分 🔥Top-Interview<strong></summary>
+	<ul>
+		<li><a href="https://github.com/DuHouAn/Java-Interview/blob/master/BigFactoryNotes/02Top100.md">最常见的面试题</a></li>
+	</ul>
+</details>
+
+## :pencil2: 模块四 进阶
 
 <details>
 	<summary><strong>进阶一 经典问题<strong></summary>
